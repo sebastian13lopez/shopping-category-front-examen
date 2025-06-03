@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GESTOR DE TIENDA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+        body {
+          background-color: #f8f9fa;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .login-container {
+          margin-top: 5%;
+        }
+        .card {
+          border: none;
+          border-radius: 10px;
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        .card-header {
+          background-color: #98ca3f;
+          color: white;
+          border-radius: 10px 10px 0 0 !important;
+          padding: 1.5rem;
+        }
+        .btn-primary {
+          background-color: #98ca3f;
+          border-color: #98ca3f;
+          padding: 0.6rem 2rem;
+          font-weight: 500;
+          transition: all 0.3s;
+        }
+        .btn-primary:hover {
+          background-color: #86b535;
+          border-color: #86b535;
+          transform: translateY(-2px);
+        }
+        .form-control:focus {
+          border-color: #98ca3f;
+          box-shadow: 0 0 0 0.25rem rgba(152, 202, 63, 0.25);
+        }
+        .navbar-brand {
+          font-weight: 700;
+          font-size: 1.5rem;
+        }
+        .navbar {
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+          margin-top: 3rem;
+          color: #6c757d;
+        }
+        .input-group-text {
+          background-color: transparent;
+          border-left: none;
+          cursor: pointer;
+        }
+        .form-control {
+          border-right: none;
+        }
+      </style>
+</head>
+  <body>
+    <div class="container"> 
+        <div class="row">            
+            <div class="col">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">GESTOR DE TIENDA</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="dashboard.html">Inicio</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#users" onclick="users('1')">Usuarios</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#products" onclick="products('1')">Productos</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#logout" onclick="logout()">Salir</a>
+                          </li>
+                        </ul> 
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+        <div class="row mt-3 row justify-content-center">    <!--Formulario-->        
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-header text-center" id="cardHeader">
+                      <h5>GESTOR DE TIENDA</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="info">
+                            <h1>Bienvenid@ al Gestor de Tienda</h1>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="card text-center mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Usuarios</h5>
+                                            <button class="btn btn-primary" onclick="users('1')">Ver Usuarios</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card text-center mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Productos</h5>
+                                            <button class="btn btn-primary" onclick="products('1')">Ver Productos</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>        
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">     <!--Footer-->       
+            <div class="col">
+                <p class="fw-medium text-center">&copy; Copyright 2025 - Gestor de Tienda</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="../js/dashboardService.js"></script>
+    <script src="../js/userService.js"></script>
+    <script src="../js/productService.js"></script>
+</body>
+</html>
