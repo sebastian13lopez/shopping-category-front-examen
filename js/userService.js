@@ -1,6 +1,6 @@
 function users(page) {
-    document.getElementById('cardHeader').innerHTML = '<h5>Listado de usuarios</h5>'
-    const PLATZI_API_ENDPOINT = "https://api.escuelajs.co/api/v1/users?offset=" + ((page-1)*10) + "&limit=10";
+    document.getElementById('cardHeader').innerHTML = '<h5>Listado de usuarios</h5>';
+    const PLATZI_API_ENDPOINT = "https://api.escuelajs.co/api/v1/users?offset=" + ((page - 1) * 10) + "&limit=10";
     
     fetch(PLATZI_API_ENDPOINT, {
         method: "GET",
@@ -21,7 +21,7 @@ function users(page) {
         console.log("resultado ", result);
         if (result.status === 200) {
             let listusers = `
-            <button type="button" class="btn btn-outline-success" onclick="createUser()">Crear</button>
+            <button type="button" class="btn btn-outline-success" onclick="createUser ()">Crear</button>
                 <table class="table">
       <thead>
         <tr>
@@ -42,10 +42,10 @@ function users(page) {
                     <td>${element.email}</td>
                     <td> <img src="${element.avatar}" class="img-thumbnail" alt="Avatar del usuario" width="50"></td>
                     <td>
-                        <button type="button" class="btn btn-outline-info" onclick="getUser('${element.id}')">Ver</button>
+                        <button type="button" class="btn btn-outline-info" onclick="getUser ('${element.id}')">Ver</button>
                     </td>
                 </tr>
-                `
+                `;
             });
             
             listusers = listusers + `
@@ -67,7 +67,7 @@ function users(page) {
                     </li>
                 </ul>
             </nav>
-            `
+            `;
             document.getElementById("info").innerHTML = listusers;
         } 
         else {
@@ -77,8 +77,8 @@ function users(page) {
     });
 }
 
-function getUser(idUser) {
-    const PLATZI_API_ENDPOINT = "https://api.escuelajs.co/api/v1/users/" + idUser;
+function getUser (idUser ) {
+    const PLATZI_API_ENDPOINT = "https://api.escuelajs.co/api/v1/users/" + idUser ;
     
     fetch(PLATZI_API_ENDPOINT, {
         method: "GET",
@@ -98,9 +98,9 @@ function getUser(idUser) {
     })
     .then((response) => {
         if (response.status === 200) {
-            const user = response.body
-            const modalUser = `
-            <div class="modal fade" id="modalUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            const user = response.body;
+            const modalUser  = `
+            <div class="modal fade" id="modalUser " tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -108,7 +108,7 @@ function getUser(idUser) {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="card";">
+                            <div class="card">
                                 <img src="${user.avatar}" class="card-img-top" alt="Avatar del usuario">
                                 <div class="card-body">
                                     <h5 class="card-title">Informacion del Usuario</h5>
@@ -124,22 +124,22 @@ function getUser(idUser) {
                     </div>
                 </div>
             </div>
-            `
-            document.body.insertAdjacentHTML('beforeend', modalUser);
-            const modalElement = document.getElementById('modalUser');
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalUser );
+            const modalElement = document.getElementById('modalUser ');
             const modal = new bootstrap.Modal(modalElement);
             modal.show();
         }
         else {
             document.getElementById('info').innerHTML = 
-                '<h3>No se encontro el usuario en la Api</h3>'
+                '<h3>No se encontro el usuario en la Api</h3>';
         }
-    })
+    });
 }
 
-function createUser() {
-    const modalUser = `
-        <div class="modal fade" id="modalUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+function createUser () {
+    const modalUser  = `
+        <div class="modal fade" id="modalUser " tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -147,9 +147,9 @@ function createUser() {
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="card";">
+                        <div class="card">
                             <div class="card-body">
-                                <form id="formCreateUser">
+                                <form id="formCreateUser ">
                                     <div class="row">
                                         <div class="col">
                                             <input type="text" class="form-control" id="name" placeholder="Nombre completo" aria-label="Name" required>
@@ -172,7 +172,7 @@ function createUser() {
                                     </div>
                                     <div class="row mt-3 justify-content-center">
                                         <div class="col-auto">
-                                            <button type="button" class="btn btn-success" onclick="saveUser()">Guardar</button>
+                                            <button type="button" class="btn btn-success" onclick="saveUser ()">Guardar</button>
                                         </div>
                                     </div>                            
                                 </form>
@@ -185,20 +185,20 @@ function createUser() {
                 </div>
             </div>
         </div>
-    `
-    document.body.insertAdjacentHTML('beforeend', modalUser);
-    const modalElement = document.getElementById('modalUser');
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalUser );
+    const modalElement = document.getElementById('modalUser ');
     const modal = new bootstrap.Modal(modalElement);
     modal.show();
 }
 
-function saveUser() {
-    const form = document.getElementById('formCreateUser')
+function saveUser () {
+    const form = document.getElementById('formCreateUser ');
     if (form.checkValidity()) {
-        const name = document.getElementById('name').value 
-        const email = document.getElementById('email').value
-        const password = document.getElementById('password').value
-        const avatar = document.getElementById('avatar').value || "https://api.lorem.space/image/face?w=150&h=150"
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const avatar = document.getElementById('avatar').value || "https://api.lorem.space/image/face?w=150&h=150";
         
         const user = {
             name,
@@ -206,9 +206,9 @@ function saveUser() {
             password,
             avatar,
             role: "customer" 
-        }
+        };
         
-        const PLATZI_API_ENDPOINT = "https://api.escuelajs.co/api/v1/users/"
+        const PLATZI_API_ENDPOINT = "https://api.escuelajs.co/api/v1/users/";
         
         fetch(PLATZI_API_ENDPOINT, {
             method: "POST",
@@ -223,32 +223,33 @@ function saveUser() {
                     return {
                         status: result.status,
                         body: data
-                    }
+                    };
                 }
-            )
+            );
         })
         .then((response) => {
             if (response.status === 201) {
-                document.getElementById('info').innerHTML = '<div class="alert alert-success">Se guardó el usuario correctamente</div>'
-                users(1) 
+                document.getElementById('info').innerHTML = '<div class="alert alert-success">Se guardó el usuario correctamente</div>';
+                users(1); 
                  
+                setTimeout(() => {
+                    document.getElementById('info').innerHTML = '';
+                }, 2000);
+            } else {
+                document.getElementById('info').innerHTML = '<div class="alert alert-danger">Error al guardar el usuario</div>';
             }
-            else {
-                document.getElementById('info').innerHTML = '<div class="alert alert-danger">Error al guardar el usuario</div>'
-            }
-            const modalId = document.getElementById('modalUser')
-            const modal = bootstrap.Modal.getInstance(modalId)  
-            modal.hide()
+            const modalId = document.getElementById('modalUser ');
+            const modal = bootstrap.Modal.getInstance(modalId);  
+            modal.hide();
         })
         .catch(error => {
-            console.error('Error:', error)
-            document.getElementById('info').innerHTML = '<div class="alert alert-danger">Error al conectar con el servidor</div>'
-            const modalId = document.getElementById('modalUser')
-            const modal = bootstrap.Modal.getInstance(modalId)  
-            modal.hide()
-        })
-    }
-    else {
-        form.reportValidity()
+            console.error('Error:', error);
+            document.getElementById('info').innerHTML = '<div class="alert alert-danger">Error al conectar con el servidor</div>';
+            const modalId = document.getElementById('modalUser ');
+            const modal = bootstrap.Modal.getInstance(modalId);  
+            modal.hide();
+        });
+    } else {
+        form.reportValidity();
     }
 }
